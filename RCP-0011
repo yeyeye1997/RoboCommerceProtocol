@@ -1,0 +1,14 @@
+//机器交易智能合约示例
+合同机器{
+    struct bid {
+        Bytes32 MachineId; //机器指纹哈希
+        UINT256 EnergyCredit; //能源信用额度
+        uint256必需QoS; //要求的最低服务质量
+    }
+    映射（地址 =>出价）公共投标；
+    
+    函数安慰（ uint256 QoS）公共{
+        需要（ robotregistry [msg.sender]，“未经授权的机器”）；
+        投标[msg.sender] = bid（keccak256（msg.sender），energyder.balance.balanceof（msg.sender），qos）;
+    }
+}
